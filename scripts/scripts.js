@@ -30,11 +30,12 @@ function add_new_counry(){
 	if(!confirm("Уверены?"))
 		return;
 	
+	//var checkbox_=document.getElementById('NEW_form_monarchy').checked;
 	var dt = {
-        'name': document.getElementById('NEW_form_name'),
-		'number_of_cities':document.getElementById('NEW_form_number_of_cities'),
-		'population':document.getElementById('NEW_form_population'),
-		'monarchy':document.getElementById('NEW_form_monarchy')
+        'name': document.getElementById('NEW_form_name').value,
+		'number_of_cities':document.getElementById('NEW_form_number_of_cities').value,
+		'population':document.getElementById('NEW_form_population').value,
+		'monarchy':document.getElementById('NEW_form_monarchy').checked
 		
     };
     $.ajax({
@@ -42,13 +43,14 @@ function add_new_counry(){
         data: dt,
         success: 
 		function(result){
+			result=result.trim();
 			if(result=='false'){
 				alert("что то пошло не так");
 				return;
 			}
 			var div_replace=document.getElementById('div_list_country');
 			if(div_replace){
-				div_replace.innerHTML+=result;
+				div_replace.innerHTML+=result+"<hr/>";
 			}
 			
 		}

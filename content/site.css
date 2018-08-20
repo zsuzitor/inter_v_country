@@ -10,8 +10,8 @@ body{
         position:fixed;
     width:100px;
     height:100px;
-    /*left:48%;
-    top:50px;*/
+    left: 50%;
+    margin-left: -50px;
     display:none;
     background-image: url(/content/images/preloader_cat.gif);
     background-size: 100% 100%;
@@ -21,8 +21,8 @@ body{
 
 div.main_div{
 	
-	height:400px;
-	border:2px solid black;
+	min-height:400px;
+	
 	
 }
 h2.header_hello{
@@ -62,7 +62,41 @@ h2.hed_for_add_new{
 }
 	
 	
+	div.div_list_country{
+		padding-top:40px;
+		width:70%;
+		min-width:960px;
+		margin-left: 15%;
+		border:2px solid black;
+	}
 	
+	div.one_country_all{
+		height:30px;
+		overflow:hidden;
+		transition:1s;
+		position:relative;
+	}
+	div.one_country_all:hover{
+		height:100px;
+		transition:1s;
+		
+	}
+	div.one_country_head{
+		position:relative;
+		font-size:18pt;
+	}
+	
+	
+	div.one_country_buttons{
+		/* border:2px solid black; */
+		
+		float:right;
+	}
+	
+	div.main_footer{
+		height:200px;
+		
+	}
 	
 	
 	

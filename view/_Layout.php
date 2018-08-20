@@ -1,10 +1,13 @@
 
 <?php
+// header('Content-Type: text/html; charset=utf-8');
 function LayoutRenderStart($title){
 	echo "<html>
 <head>
 <title>$title</title>";
 ?>
+<meta charset="utf-8" /> <html lang="ru">
+
 <link href='/content/site.css' rel='stylesheet'>
 
 
@@ -27,7 +30,7 @@ function LayoutRenderStart($title){
 
 function LayoutRenderEnd(){
 	
-	echo "</body>
+	echo "<div class='main_footer'></div></body>
 </html>";
 	
 }

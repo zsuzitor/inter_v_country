@@ -22,7 +22,7 @@ function AddNewCountryFormRender(){
  </div>
  <div>
   <label for='NEW_form_monarchy'> Монархия?</label>
-  <input type='checkbox' id='NEW_form_monarchy' name ='monarchy'/>
+  <input type='checkbox' value='true' id='NEW_form_monarchy' name ='monarchy'/>
  </div>
   
 
