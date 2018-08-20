@@ -6,6 +6,19 @@ body{
 	padding-right:10px;
 }
 
+ div.Main_preloader{
+        position:fixed;
+    width:100px;
+    height:100px;
+    /*left:48%;
+    top:50px;*/
+    display:none;
+    background-image: url(/content/images/preloader_cat.gif);
+    background-size: 100% 100%;
+    z-index:5;
+    }
+
+
 div.main_div{
 	
 	height:400px;
@@ -26,3 +39,44 @@ div.main_header{
 	text-align:center;
 	background-color:rgba(0, 0, 0,.3);
 }
+
+/* div#div_form_add_new_county_id{ */
+	/* height:30px; */
+	/* overflow:hidden; */
+/* } */
+
+div.div_all_add_new_country{
+height:30px;
+	overflow:hidden;
+	border:2px solid black;
+	transition:1s;
+}
+div.div_all_add_new_country:hover{
+	height:200px;
+	transition:1s;
+}
+
+h2.hed_for_add_new{
+	margin-top:0;
+	text-align:center;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -15,16 +15,13 @@ function ListCountryRender($array){
 	
 	echo'<div class="main_div">';
 	LayoutRenderStart("Countries");
-	ListCountryRender();
-	
+	AddNewCountryFormRender();
+	echo'<div id="div_list_country" class="div_list_country">';
 	foreach ($array as $obj) {
-    foreach ($v1 as $v2) {
-        echo "$v2\n";
-    }
-	
-	
+    echo $obj["id"];
 	
 }
+echo'</div>';
 	echo'</div>';
 	
 	
