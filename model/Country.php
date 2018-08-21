@@ -3,7 +3,6 @@
 <?php
 
 
-
 class Country{
 	
 	public $id;
@@ -21,71 +20,76 @@ class Country{
 		$this->monarchy=null;
 	}
 
+	//формирует объект из массива
 	public static function GetClassObject($array){
 		$res=new Country;
-		//echo $array["id"];
 		if(isset($array["id"]))
-	$res->id=$array["id"];
+			$res->id=$array["id"];
 
 		if(isset($array["name"]))
-	$res->name=$array["name"];
-if(isset($array["number_of_cities"]))
-	$res->number_of_cities=$array["number_of_cities"];
-if(isset($array["population"]))
-	$res->population=$array["population"];
-if(isset($array["monarchy"]))
-	$res->monarchy=$array["monarchy"];
-		//echo $res->name;
+			$res->name=$array["name"];
+		if(isset($array["number_of_cities"]))
+			$res->number_of_cities=$array["number_of_cities"];
+		if(isset($array["population"]))
+			$res->population=$array["population"];
+		if(isset($array["monarchy"]))
+			$res->monarchy=$array["monarchy"];
 		return $res;
 	}
 	
-public static function ValidationArray($array){//,$full=false,$connect=null
-
-
-if(!isset($array["name"]))
-	return null;
-if(!isset($array["number_of_cities"]))
-	return null;
-if(!isset($array["population"]))
-	return null;
-if(!isset($array["monarchy"]))
-	return null;
-// if($full){
-	// if(!is_null($connect)){
-		// throw new  Exception('connect==null');
-		// return null;
-	// }
-		// ValidationInputArray($array,$connect);
 	
-// }
+	// валидация для свойст объекта(из массива), мозвращает новый объект
+	public static function ValidationArray(&$array){
+
+		if(!isset($array["name"]))
+			return null;
+		if(!isset($array["number_of_cities"]))
+			return null;
+		if(!isset($array["population"]))
+			return null;
+		if(!isset($array["monarchy"]))
+			return null;
+
+		$res=new Country;
+
+		if(isset($array["id"]))
+			if(settype($array["id"],"integer"))
+				$res->id=$array["id"];
+			else
+				return null;
+
 	
+	
+	
+		if(preg_match("/^(\p{L}){1}(\p{L}|\p{Zs}){0,98}/i", $array["name"]))
+			$res->name=$array["name"];
+		else 
+			return null;
+
+		if(settype($array["number_of_cities"],"integer"))
+			$res->number_of_cities=$array["number_of_cities"];
+		else
+			return null;
+
+		if(settype($array["population"],"integer"))
+			$res->population=$array["population"];
+		else
+			return null;
 
 
-$res=new Country;
+		if(is_string($array["monarchy"])){
+			if(strcmp($array["monarchy"],"true")===0)
+				$array["monarchy"]=1;
+			else
+				$array["monarchy"]=0;
+		}
+		if(settype($array["monarchy"],"bool"))
+			$res->monarchy=$array["monarchy"];
+		else
+			return null;
+		
 
-if(isset($array["id"]))
-	$res->id=$array["id"];
-
-$res->name=$array["name"];
-$res->number_of_cities=$array["number_of_cities"];
-$res->population=$array["population"];
-
-echo "+++--+".$array["monarchy"];
-if(is_string($array["monarchy"])){
-	 if(strcmp($array["monarchy"],"true")===0)
-		 $array["monarchy"]=1;
-	 else
-		 $array["monarchy"]=0;
- }
-echo "++++".$array["monarchy"];
-
-$res->monarchy=(bool)$array["monarchy"];
-// if($array["monarchy"])
-// $res->monarchy=true;
-// else
-	// $res->monarchy=false;
-
-return $res;
+		return $res;
 }	
 	
 }
